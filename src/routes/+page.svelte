@@ -6,10 +6,24 @@
 	import phoneImage2 from '$lib/assets/IMG_1360-portrait.png';
 	import googlePlayBadge from '$lib/assets/googleplay.svg';
 	import appStoreBadge from '$lib/assets/appstore.svg';
+
+	let bgLoaded = $state(false);
+	let phone1Loaded = $state(false);
+	let phone2Loaded = $state(false);
+
+	// Preload background image
+	$effect(() => {
+		const img = new Image();
+		img.onload = () => bgLoaded = true;
+		img.src = rangerstation;
+	});
 </script>
 
 <div class="container">
 	<div class="panel panel-left" style="background-image: url({rangerstation})">
+		{#if !bgLoaded}
+			<div class="skeleton skeleton-bg"></div>
+		{/if}
 		<a href="/" class="logo-link">
 			<img src={NoteLogo} alt="Note" class="logo" />
 		</a>
@@ -25,6 +39,9 @@
 		</div>
 	</div>
 	<div class="panel panel-top-right">
+		{#if !phone1Loaded}
+			<div class="skeleton skeleton-green"></div>
+		{/if}
 		<div class="panel-top-right-content">
 			<h2 class="panel-title">Save places <br /> you want to try</h2>
 			<p class="panel-description">
@@ -35,12 +52,15 @@
 			</p>
 		</div>
 		<div class="phone-image-container">
-			<img src={phoneImage} alt="Note app on phone" class="phone-image" />
+			<img src={phoneImage} alt="Note app on phone" class="phone-image" onload={() => phone1Loaded = true} />
 		</div>
 	</div>
 	<div class="panel panel-bottom-right">
+		{#if !phone2Loaded}
+			<div class="skeleton skeleton-light"></div>
+		{/if}
 		<div class="phone-image-container-bottom">
-			<img src={phoneImage2} alt="Note app on phone" class="phone-image-bottom" />
+			<img src={phoneImage2} alt="Note app on phone" class="phone-image-bottom" onload={() => phone2Loaded = true} />
 		</div>
 		<div class="panel-bottom-right-content">
 			<h2 class="panel-title-dark">Curate your <br /> go-to list</h2>
@@ -84,6 +104,52 @@
 </footer>
 
 <style>
+	/* Skeleton loading animation */
+	@keyframes shimmer {
+		0% {
+			background-position: -200% 0;
+		}
+		100% {
+			background-position: 200% 0;
+		}
+	}
+
+	.skeleton {
+		position: absolute;
+		inset: 0;
+		border-radius: 12px;
+		z-index: 10;
+		background-size: 200% 100%;
+		animation: shimmer 1.5s ease-in-out infinite;
+	}
+
+	.skeleton-bg {
+		background: linear-gradient(
+			90deg,
+			#3a3a3a 0%,
+			#4a4a4a 50%,
+			#3a3a3a 100%
+		);
+	}
+
+	.skeleton-green {
+		background: linear-gradient(
+			90deg,
+			#245438 0%,
+			#2c6947 50%,
+			#245438 100%
+		);
+	}
+
+	.skeleton-light {
+		background: linear-gradient(
+			90deg,
+			#b8d4c4 0%,
+			#cfe4d8 50%,
+			#b8d4c4 100%
+		);
+	}
+
 	.container {
 		display: grid;
 		grid-template-columns: 0.9fr 1fr;
@@ -96,6 +162,7 @@
 
 	.panel {
 		border-radius: 12px;
+		position: relative;
 	}
 
 	.panel-left {
