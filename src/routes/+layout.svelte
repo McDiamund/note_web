@@ -44,4 +44,17 @@
 	:global(body > div) {
 		height: 100%;
 	}
+
+	@media (max-width: 1200px) {
+		:global(html, body) {
+			overflow: auto;
+			height: auto;
+			min-height: 100%;
+		}
+
+		:global(body > div) {
+			height: auto;
+			min-height: 100%;
+		}
+	}
 </style>

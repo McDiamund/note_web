@@ -262,7 +262,7 @@
 
 	.page-title {
 		font-family: "Jost", sans-serif;
-		font-size: 3.5rem;
+		font-size: clamp(1.75rem, 4vw, 3.5rem);
 		font-weight: 500;
 		color: #ffffff;
 	}
@@ -281,15 +281,8 @@
 		color: #2c2c2c;
 	}
 
-	/* Tablet breakpoint */
-	@media (max-width: 900px) {
-		.container {
-			grid-template-columns: 1fr 1fr;
-		}
-	}
-
-	/* Mobile breakpoint */
-	@media (max-width: 600px) {
+	/* 1200px breakpoint - single column */
+	@media (max-width: 1200px) {
 		.container {
 			grid-template-columns: 1fr;
 			grid-template-rows: auto 1fr;
@@ -298,9 +291,6 @@
 		.panel-left {
 			min-height: 200px;
 		}
-
-		.page-title {
-			font-size: 2.5rem;
-		}
 	}
+
 </style>
