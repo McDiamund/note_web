@@ -78,7 +78,7 @@
 			</div>
 			<div class="footer-text">
 				<p class="footer-links">
-					<a href="/privacy-policy">Privacy Policy</a> - <a href="/terms-conditions">Terms & Conditions</a>
+					<a href="/privacy-policy">Privacy Policy</a> - <a href="/terms-conditions">Terms & Conditions</a> - <a href="/support">Support</a>
 				</p>
 				<p class="footer-copyright">Treadway Designs LLC. © 2026</p>
 			</div>
@@ -97,7 +97,7 @@
 	</div>
 	<div class="page-footer-text">
 		<p class="footer-links">
-			<a href="/privacy-policy">Privacy Policy</a> - <a href="/terms-conditions">Terms & Conditions</a>
+			<a href="/privacy-policy">Privacy Policy</a> - <a href="/terms-conditions">Terms & Conditions</a> - <a href="/support">Support</a>
 		</p>
 		<p class="footer-copyright">Treadway Designs LLC. © 2026</p>
 	</div>
